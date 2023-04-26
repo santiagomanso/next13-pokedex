@@ -1,3 +1,4 @@
+//NOTE - interfaces for single pokemon
 export interface pokemonI {
   pokemon: {
     id: number
@@ -6,6 +7,7 @@ export interface pokemonI {
   }
 }
 
+//NOTE - array of pokemons
 export interface pokemonList {
   pokemons: pokemonI[]
 }
