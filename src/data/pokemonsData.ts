@@ -1,5 +1,6 @@
-import { pokemonList, pokemonI } from '@/interfaces/interfaces'
+import { pokemonList } from '@/interfaces/interfaces'
 
+//array file to display pokemons spans on homepage
 export const pokemons: pokemonList = {
   pokemons: [
     { pokemon: { id: 1, name: 'pikachu', type: 'electric' } },
