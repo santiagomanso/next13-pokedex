@@ -25,6 +25,7 @@ const DragPokemon = ({ pokemon }: pokemonI) => {
         return { icon: faBan, className: 'text-gray-500' }
     }
   }
+  //NOTE - destructuration of the icon/tailwind className from the switch function
   const { icon, className } = switchType()
 
   const handleDragStart = (e: React.DragEvent<HTMLLIElement>) => {
@@ -38,6 +39,7 @@ const DragPokemon = ({ pokemon }: pokemonI) => {
       className='text-center bg-transparent border-[2px] border-indigo-300 text-indigo-300 font-medium px-5 py-2 w-full rounded-sm uppercase shadow-lg shadow-gray-900 tracking-wider flex gap-1 items-center justify-center transition-all ease-in-out duration-500'
     >
       <span>{pokemon.name}</span>
+
       {icon && <FontAwesomeIcon icon={icon} className={className} />}
     </li>
   )
