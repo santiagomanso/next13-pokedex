@@ -3,10 +3,6 @@ import React, { useContext, useState } from 'react'
 const Input = () => {
   const [active, setActive] = useState('')
 
-  const handleDragStart = (e: React.DragEvent<HTMLSpanElement>) => {
-    e.dataTransfer.setData('text/plain', e.currentTarget.textContent || '')
-  }
-
   const handleDragOver = (e: React.DragEvent<HTMLInputElement>) => {
     e.preventDefault()
   }
