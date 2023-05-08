@@ -6,8 +6,10 @@ interface ContainerI {
 
 const Container = ({ children }: ContainerI) => {
   return (
-    <main className='bg-gradient-to-br from-slate-600 to-slate-700 h-screen flex justify-center  lg:items-center text-sky-500'>
-      <section className='w-full max-w-3xl'>{children}</section>
+    <main className='bg-gradient-to-br from-slate-500 to-gray-200 flex justify-center lg:items-center h-screen'>
+      <section className='w-full max-w-7xl h-1/2 border-2 border-neutral-500 rounded-md shadow-2xl shadow-slate-500'>
+        {children}
+      </section>
     </main>
   )
 }
