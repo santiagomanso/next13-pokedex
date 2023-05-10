@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   faBan,
   faBolt,
@@ -9,8 +9,14 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { pokemonI } from '@/interfaces/interfaces'
+import { SearchContext } from '@/context/SearchContext'
+import { DragContext } from '@/context/dragContext'
 
 const DragPokemon = ({ pokemon }: pokemonI) => {
+  //NOTE - extraction of global states
+  const { setSearchPokemon } = useContext(SearchContext)
+  const { setActiveDrag } = useContext(DragContext)
+
   const switchType = (): {
     icon: IconProp
     shadowColor: string
@@ -60,12 +66,23 @@ const DragPokemon = ({ pokemon }: pokemonI) => {
 
   const handleDragStart = (e: React.DragEvent<HTMLLIElement>) => {
     e.dataTransfer.setData('text/plain', pokemon.name)
+    setActiveDrag(true)
+  }
+
+  const handleDragEnd = () => {
+    setActiveDrag(false)
+  }
+
+  const handleClick = () => {
+    setSearchPokemon(pokemon.name)
   }
 
   return (
     <li
       draggable={true}
       onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      onClick={handleClick}
       className={`text-center bg-transparent border-2 font-medium px-5 py-2 rounded-sm uppercase shadow tracking-wider flex gap-1 items-center justify-center transition-all ease-in-out duration-500 cursor-pointer ${shadowColor} ${borderColor}`}
     >
       <span className='text-gray-800'>{pokemon.name}</span>
