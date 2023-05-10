@@ -7,17 +7,23 @@ import Navbar from '@/components/Navbar'
 
 import Footer from '@/components/Footer'
 import Layout from '@/components/Layout'
+import { SearchContextProvider } from '@/context/SearchContext'
+import { DragContextProvider } from '@/context/dragContext'
 
 library.add(fas)
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Navbar />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-      <Footer />
+      <SearchContextProvider>
+        <DragContextProvider>
+          <Navbar />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+          <Footer />
+        </DragContextProvider>
+      </SearchContextProvider>
     </>
   )
 }
