@@ -24,7 +24,7 @@ const Input = () => {
         onDrop={handleDrop}
         type='text'
         placeholder='search for a pokemon'
-        className='px-2 py-2 rounded-sm focus:outline-none bg-transparent border-[2px] border-indigo-300 text-indigo-300 font-medium placeholder-indigo-300 uppercase shadow-lg shadow-gray-900 w-full text-center'
+        className='px-2 py-2 focus:outline-none bg-transparent border-2 border-gray-400 text-gray-500 font-medium placeholder-gray-500 uppercase shadow-lg rounded w-full text-center'
         value={active}
         onChange={handleChange}
       />
