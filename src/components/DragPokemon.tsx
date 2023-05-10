@@ -66,9 +66,9 @@ const DragPokemon = ({ pokemon }: pokemonI) => {
     <li
       draggable={true}
       onDragStart={handleDragStart}
-      className={`text-center bg-transparent border-2 font-medium px-5 py-2 rounded-sm uppercase shadow tracking-wider flex gap-1 items-center justify-center transition-all ease-in-out duration-500 ${shadowColor} ${borderColor}`}
+      className={`text-center bg-transparent border-2 font-medium px-5 py-2 rounded-sm uppercase shadow tracking-wider flex gap-1 items-center justify-center transition-all ease-in-out duration-500 cursor-pointer ${shadowColor} ${borderColor}`}
     >
-      <span>{pokemon.name}</span>
+      <span className='text-gray-800'>{pokemon.name}</span>
 
       {icon && <FontAwesomeIcon icon={icon} className={className} />}
     </li>
