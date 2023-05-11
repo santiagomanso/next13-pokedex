@@ -15,7 +15,7 @@ import { DragContext } from '@/context/dragContext'
 const DragPokemon = ({ pokemon }: pokemonI) => {
   //NOTE - extraction of global states
   const { setSearchPokemon } = useContext(SearchContext)
-  const { setActiveDrag } = useContext(DragContext)
+  const { setisDragging } = useContext(DragContext)
 
   const switchType = (): {
     icon: IconProp
@@ -66,11 +66,11 @@ const DragPokemon = ({ pokemon }: pokemonI) => {
 
   const handleDragStart = (e: React.DragEvent<HTMLLIElement>) => {
     e.dataTransfer.setData('text/plain', pokemon.name)
-    setActiveDrag(true)
+    setisDragging(true)
   }
 
   const handleDragEnd = () => {
-    setActiveDrag(false)
+    setisDragging(false)
   }
 
   const handleClick = () => {
