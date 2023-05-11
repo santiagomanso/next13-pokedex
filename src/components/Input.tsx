@@ -1,8 +1,7 @@
 import { SearchContext } from '@/context/SearchContext'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 const Input = () => {
-  const [active, setActive] = useState('')
   const { searchPokemon, setSearchPokemon } = useContext(SearchContext)
 
   const handleDragOver = (e: React.DragEvent<HTMLInputElement>) => {
@@ -12,7 +11,7 @@ const Input = () => {
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
     e.preventDefault()
     const pokemonName = e.dataTransfer.getData('text/plain')
-    setActive(pokemonName)
+    setSearchPokemon(pokemonName)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
