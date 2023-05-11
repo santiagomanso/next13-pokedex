@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Input from './Input'
 import DragPokemon from './DragPokemon'
 import { pokemons } from '@/data/pokemonsData'
+import { DragContext } from '@/context/dragContext'
+import PokemonBox from './PokemonBox'
 
 interface sectionI {
   header: string
@@ -9,8 +11,10 @@ interface sectionI {
 }
 
 const Section = ({ header, desc }: sectionI) => {
+  const { isDragging } = useContext(DragContext)
+
   return (
-    <section className='flex flex-col lg:flex-row h-full items-center  shadow-2xl max-w-[1280px] w-full lg:h-full lg:rounded-[5px] px-2 md:px-24 lg:px-5 py-6 overflow-auto lg:overflow-hidden bg-white'>
+    <section className='flex flex-col lg:flex-row h-full items-center  shadow-2xl max-w-[1280px] w-full lg:h-full lg:rounded-[5px] px-2 md:px-24 lg:px-5 py-6 overflow-auto lg:overflow-hidden bg-gray-100'>
       <article className='lg:w-1/2 flex flex-col justify-center items-center gap-y-4'>
         <h1 className='text-6xl font-bold text-center text-gray-800'>
           {header}
@@ -24,11 +28,9 @@ const Section = ({ header, desc }: sectionI) => {
           ))}
         </ul>
       </article>
-      <article className='w-full lg:w-3/4 h-full flex flex-col gap-y-10 lg:gap-y-5 lg:flex-col lg:items-center justify-center'>
+      <article className='w-full lg:w-3/4 h-full flex flex-col gap-y-10 lg:gap-y-5 lg:flex-col lg:items-center justify-center '>
         <Input />
-        <div className='border-2 border-gray-400 rounded shadow-xl w-full h-2/3'>
-          here
-        </div>
+        <PokemonBox />
       </article>
     </section>
   )
