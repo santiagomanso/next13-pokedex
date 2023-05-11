@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <Section
       header='PokedeX'
-      desc='Click on one of the following, or just drag & drop them into the box to the right ➡️'
+      desc='Search a pokemon, or click one of the following, you can also drag & drop them into the box to the right ➡️'
     />
   )
 }

@@ -1,13 +1,13 @@
 import { createContext, useState } from 'react'
 
 interface DragContextI {
-  activeDrag: boolean
-  setActiveDrag: (bol: boolean) => void
+  isDragging: boolean
+  setisDragging: (bol: boolean) => void
 }
 
 const initialContext: DragContextI = {
-  activeDrag: false,
-  setActiveDrag: () => console.log('Not initialized'),
+  isDragging: false,
+  setisDragging: () => console.log('Not initialized'),
 }
 
 export const DragContext = createContext<DragContextI>(initialContext)
@@ -17,11 +17,11 @@ type props = {
 }
 
 export const DragContextProvider = ({ children }: props) => {
-  const [activeDrag, setActiveDrag] = useState(false)
+  const [isDragging, setisDragging] = useState(false)
 
   const data: DragContextI = {
-    activeDrag,
-    setActiveDrag,
+    isDragging,
+    setisDragging,
   }
 
   return <DragContext.Provider value={data}>{children}</DragContext.Provider>
